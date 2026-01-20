@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register - FYP Car Rental</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- Main Login/Registration Container -->
+    <div class="container-login" id="container-login">
+
+        <!-- Registration Section -->
+        <div class="form-container sign-up-container" id="sign-up-container">
+            <form method="POST" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <h1>Create Account</h1>
+                
+                <!-- Social Sign-in Options -->
+                <div class="social-container">
+                    <a href="/accounts/google/login/" class="social" aria-label="Sign up with Google">
+                        <i class='bx bxl-gmail'></i>
+                    </a>
+                </div>
+                <span class="registration-txt">or register your email for an account</span>
+                
+                <!-- Input fields for registration -->
+                <input type="text" placeholder="Username" name="username" required aria-label="Username" />
+                <input type="email" placeholder="Email" name="email" required aria-label="Email" />
+                <input type="password" placeholder="Password" name="password" required aria-label="Password" />
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Login Section -->
+        <div class="form-container sign-in-container" id="sign-in-container">
+            <form method="POST" action="{% url 'login' %}"> 
+                {% csrf_token %}                            
+                <h1>Sign In</h1>
+
+                <!-- Social Sign-in Option -->
+                <div class="social-container">
+                    <a href="/accounts/google/login/" class="social" aria-label="Sign in with Google">
+                        <i class='bx bxl-gmail'></i>
+                    </a>
+                </div>
+                <span class="SignIn-txt">Use your previous personal account</span>
+
+                <!-- Input fields for login -->
+                <input type="email" name="email" placeholder="Email" required aria-label="Email">
+                <input type="password" name="password" placeholder="Password" required aria-label="Password">
+                <a href="{% url 'password_reset' %}" class="forgot">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Overlay with Sign-in/Sign-up prompts -->
+        <div class="overlay-container" id="overlayCon">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h2>Hello, Friend!</h2>
+                    <p>Enter your personal details and start your journey with us</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                
+                <div class="overlay-panel overlay-right">
+                    <!-- Display Django messages -->
+                    {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <h2>Welcome Back!</h2>
+                    <p>To keep connected with us, please login with your personal info</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP - FYP Car Rental</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- OTP Container to access application -->
+    <div class="otp-container" id="otp-container">
+        <form method="POST" action="{% url 'otp_verify' %}">
+            {% csrf_token %}
+            <h1 class="otp-heading">Verify OTP</h1>
+
+            <!-- Display Django messages -->
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if qr_code %}
+                <!-- First-time setup - QR code display -->
+                <p class="otp-description">Scan this QR code with your Google Authenticator app to link your device.</p>
+                <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code for Google Authenticator" class="qr-code">
+                <p class="otp-description">Once scanned, enter the 6-digit code from your app below to complete setup.</p>
+            {% else %}
+                <!-- Returning user - just ask for OTP -->
+                <p class="otp-description">Enter the 6-digit code from your Google Authenticator app.</p>
+            {% endif %}
+
+            <input type="text" 
+                   placeholder="Enter 6-digit code" 
+                   name="otp" 
+                   required 
+                   maxlength="6" 
+                   pattern="[0-9]{6}"
+                   inputmode="numeric"
+                   aria-label="One-time password" />
+            
+            <button type="submit">
+                {% if qr_code %}Complete Setup{% else %}Verify{% endif %}
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYP Car Rental - Book Your Dream Trip</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!------------------Header Section------------------>
+    <header>
+        <div id="header">
+            <div class="container">
+                <header class="heading">
+                    <!-- Logo Icon -->
+                    <img src="{% static 'images/logo.svg' %}" class="logo" alt="Company Logo">
+
+                    <input type="checkbox" id="check">
+                    <label for="check" class="icons">
+                        <i class='bx bx-menu' id="menu-icon"></i>
+                        <i class='bx bx-x' id="close-icon"></i>
+                    </label>
+                    
+                    <nav class="navbar">
+                        <a href="#about" style="--i:0;">About Us</a>
+                        <a href="#drivers" style="--i:1;">Meet the Drivers</a>
+                        <a href="{% url 'logout' %}" style="--i:2;">Logout</a>
+                    </nav>
+                </header>
+
+                <!-- Main menu text-->
+                <div class="header-text">
+                    <h1>Book Your Dream Trip</h1>
+                    <div class="p-container">
+                        <p>Book your trip to Daikoku PA and let your dreams <br>become a reality, 
+                            basking in the after hours <br>Japanese car scene</p>
+                        
+                        <div class="circle-small" style="top: 42.5%; left: 9%; z-index: -1; opacity: 75%;"></div>
+                    </div>
+                </div>
+
+                <!-- Main menu image-->
+                <div class="supra-container">
+                    <div class="circle-behind"></div>
+                    <img src="{% static 'images/supra-ai.png' %}" class="supra-image" alt="Toyota Supra">
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="socials">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fa-brands fa-instagram fa-2xl" style="color: #032b44;"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <i class="fa-brands fa-twitter fa-2xl" style="color: #032b44;"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fa-brands fa-facebook fa-2xl" style="color: #032b44;"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- About section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col1">
+                    <img src="{% static 'images/r34.jpg' %}" alt="Nissan R34 Skyline">
+                </div>                                       
+                <div class="about-col2">
+                    <h2 class="sub-title">About Us</h2>
+                    <p>
+                        Buckle up for an unforgettable adventure as we embark on a once-in-a-lifetime trip to Daikoku PA, 
+                        home to Japan's vibrant car culture and breathtaking sights. Picture yourself cruising in my iconic Nissan R34 Skyline, 
+                        the perfect blend of speed and style, as we glide along the scenic coastal roads. As we approach Daikoku PA, the anticipation
+                        builds, and you'll be captivated by the stunning views of Tokyo Bay.
+                    </p>
+                    <p>
+                        The shimmering skyline serves as a picturesque backdrop, and the scent of fresh ocean air fills our lungs, setting the stage for an incredible day ahead. Along the way, we'll stop at
+                        hidden gems like the breathtaking Shonan coastline, where you can capture the beauty of the azure waves crashing against the 
+                        cliffs and snap photos that will leave your friends in awe.
+                    </p>
+                    <p>
+                        At Daikoku PA, get ready to immerse yourself in the electrifying atmosphere of this automotive paradise. As we park the R34 among 
+                        a stunning collection of unique vehicles, you'll witness car enthusiasts showcasing their prized rides, each telling a story of 
+                        passion and dedication.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drivers section -->
+    <section id="drivers">
+        <div class="container">
+            <h2 class="sub-title">Our Drivers</h2>
+            <div class="drivers-list">
+                <div>
+                    <i class="fa-solid fa-dragon"></i>
+                    <h3>Yuki</h3>
+                    <p>
+                        Meet Yuki, the spirited driver behind the wheel of a stunning Nissan Silvia S14. Known for its agile handling and sleek design, 
+                        Yuki's S14 is a perfect match for twisty mountain roads and urban streets alike. With a passion for drifting and a knack for finding the 
+                        best scenic routes.
+                    </p>
+                    <a href="#form-section" class="book-driver" data-driver="Yuki - Nissan Silvia S14">Book driver now</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-otter"></i>
+                    <h3>Yujin</h3>
+                    <p>
+                        Passionate about the art of driving, Yujin will take you on exhilarating trips through winding roads in his beautiful FD RX7,
+                        where every turn is a chance to push the limits. Experience the beauty of the Japanese countryside 
+                        and the thrill of the open road with Yujin as your guide.
+                    </p>
+                    <a href="#form-section" class="book-driver" data-driver="Yujin - Mazda FD RX7">Book driver now</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-cat"></i>
+                    <h3>Junya</h3>
+                    <p>
+                        Get ready to experience the adrenaline rush as Junya takes you to the legendary Fuji Speedway and through the vibrant streets of Tokyo. Displaying the natural beauty of his R34 GTR
+                        from exhilarating night races to scenic drives around Mount Fuji, every moment with Junya is an adventure.
+                    </p>
+                    <a href="#form-section" class="book-driver" data-driver="Junya - Nissan R34 GTR">Book driver now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Now section -->
+    <section id="form-section" class="center-container">
+        <div class="form">
+            <form action="{% url 'submit_booking' %}" method="POST" class="booking-form"> 
+                {% csrf_token %}
+                <div class="booking-form-container">
+                    <h2>Book Your Driver</h2>
+                    
+                    <!-- Display Django messages -->
+                    {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="form-columns">
+                        <!-- Left Column -->
+                        <div class="column-left">
+                            <label for="name">Full Name:</label>
+                            <input type="text" id="name" name="name" required>
+
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="date">Preferred Date:</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="column-right">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" maxlength="11" pattern="\d{11}" required>
+
+                            <label for="time">Preferred Time:</label>
+                            <input type="time" id="time" name="time" required>
+
+                            <label for="message">Driver Requested and Notes:</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Driver and notes will appear here"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-button">Submit Booking</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
