@@ -88,17 +88,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-
-
 # DATABASE
 
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '?',  
-        'USER': '?',  
-        'PASSWORD': '?',
+        'NAME': '?',          #removed to keep database integrity 
+        'USER': '?',              #removed to keep database integrity 
+        'PASSWORD': '?',      #removed to keep database integrity 
         'HOST': 'localhost',  
         'PORT': '3306',  
     }
@@ -129,7 +127,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-
 # AUTHENTICATION BACKENDS
 
 
@@ -138,7 +135,6 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
     'frontend.backends.EmailBackend',
 ]
-
 
 
 # AUTHENTICATION SETTINGS
@@ -155,10 +151,7 @@ LOGIN_URL = 'login'
 
 SITE_ID = 1
 
-
-
 # EMAIL CONFIGURATION
-
 
 # Development: Emails print to console
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -172,15 +165,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 
 
-
-# INTERNATIONALIZATION
-
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-
 
 
 # STATIC FILES (CSS, JavaScript, Images)
@@ -188,7 +176,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'frontend/static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
 
 
 # MEDIA FILES (User Uploads)
